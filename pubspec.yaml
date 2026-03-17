@@ -1,0 +1,73 @@
+name: office_teschi
+description: "Aplicación Office TESChi."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  image_picker: ^1.0.4
+  image_cropper: ^11.0.0
+  # Iconos estilo iOS (Recomendado tenerlo siempre)
+  cupertino_icons: ^1.0.6
+  flutter_launcher_icons: ^0.13.1
+
+  # --- Dependencias Funcionales ---
+  # Para conectar con tu API (Node.js) y base de datos
+  http: ^1.6.0
+  http_parser: ^4.0.2
+
+  # Para seleccionar archivos y permisos (si vas a subir fotos de perfil luego)
+  file_picker: ^10.3.8
+  permission_handler: ^12.0.1
+  provider: ^6.1.5+1
+  qr_flutter: ^4.1.0
+  audioplayers: ^5.2.1
+  flutter_dotenv: ^5.2.1
+  shared_preferences: ^2.3.2
+  flutter_local_notifications: ^17.2.2
+  syncfusion_flutter_pdfviewer: ^27.2.5
+  pdf: ^3.11.1
+  image: ^4.2.0
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logof.jpg" # Escribe aquí la ruta exacta de tu imagen
+  # min_sdk_android: 21 # Opcional: Descomenta si tienes problemas en Android 
+
+flutter:
+  uses-material-design: true
+
+  # Tus imágenes
+  assets:
+    - .env
+    - assets/logof.jpg
+    - assets/fondor.png
+    - assets/fondor1.png
+    - assets/ent1.png
+    - assets/impresiones.png
+    - assets/productos.png
+    - assets/servicios.png
+    - assets/artediseño.png
+    - assets/presentacionoficina.png
+    - assets/presentacionpro.png
+    - assets/papeleria.png
+    - assets/otros.png
+    - assets/anillado.png
+    - assets/docespecial.png
+    - assets/encuadernado.png
+    - assets/fondoservicioses.png
+    - assets/imprfoto.png
+    - assets/propapeleria.png
+    - assets/prooficina.png
+    - assets/fondopro.png
+    - assets/proartediseño.png
+    - assets/iprodcutos.png
+    - assets/oficina1.png
+
+    
