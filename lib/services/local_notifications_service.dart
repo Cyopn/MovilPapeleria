@@ -45,7 +45,6 @@ class LocalNotificationsService {
       ),
     );
 
-    // Android 13+ runtime permission.
     await android?.requestNotificationsPermission();
 
     _initialized = true;

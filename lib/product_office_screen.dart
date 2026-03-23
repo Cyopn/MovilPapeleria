@@ -131,7 +131,6 @@ class _ventana_oficinaState extends State<ventana_oficina> {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () async {
-                              // Aquí deberías abrir el modal de pago si aplica
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF7CC8F8),
@@ -199,7 +198,6 @@ class _ventana_oficinaState extends State<ventana_oficina> {
     );
   }
 
-  // --- MÉTODO DE FETCH DENTRO DEL STATE ---
   Future<void> fetchProducts() async {
     try {
       final response = await http.get(
@@ -339,9 +337,6 @@ class _ventana_oficinaState extends State<ventana_oficina> {
     );
   }
 
-// --- WIDGET PRODUCT CARD CON SONIDO ---
-
-// Mover fuera de la clase State
 }
 
 class ProductCard extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:office_teschi/product_art_and_design_screen.dart';
 import 'package:office_teschi/product_other_screen.dart';
-import 'package:office_teschi/product_office_screen.dart'; // Asegúrate que el archivo se llame así
+import 'package:office_teschi/product_office_screen.dart';
 import 'package:office_teschi/product_stationery_screen.dart';
 import 'package:office_teschi/widgets/app_header.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,6 @@ class ProductosScreen extends StatelessWidget {
               },
             ),
 
-            // --- CONTENIDO ---
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -67,7 +66,6 @@ class ProductosScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // 1. Banner
                     _CategoryCard(
                       imagePath: 'assets/fondopro.png',
                       title: null,
@@ -75,7 +73,6 @@ class ProductosScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // 2. Oficina - CORREGIDO (Sin const)
                     _CategoryCard(
                       imagePath: 'assets/presentacionoficina.png',
                       title: 'Oficina',
@@ -89,7 +86,6 @@ class ProductosScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // 3. Papelería - CORREGIDO (Sin const)
                     _CategoryCard(
                       imagePath: 'assets/iprodcutos.png',
                       title: 'Papelería',
@@ -103,7 +99,6 @@ class ProductosScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // 4. Arte y diseño - CORREGIDO (Sin const)
                     _CategoryCard(
                       imagePath: 'assets/artediseño.png',
                       title: 'Arte y diseño',
@@ -115,7 +110,6 @@ class ProductosScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // 5. Otros - CORREGIDO (Sin const)
                     _CategoryCard(
                       imagePath: 'assets/otros.png',
                       title: 'Otros',

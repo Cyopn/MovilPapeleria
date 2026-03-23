@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart'; // Importación de Provider
-import 'package:office_teschi/cart_provider.dart'; // Importación de tu Gestor de Estado Global
+import 'package:provider/provider.dart';
+import 'package:office_teschi/cart_provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:office_teschi/login_screen.dart';
 import 'package:office_teschi/main_screen.dart';
-import 'package:office_teschi/register_screen.dart'; // Importa la pantalla de registro
+import 'package:office_teschi/register_screen.dart';
 import 'package:office_teschi/services/app_messenger.dart';
 import 'package:office_teschi/services/local_notifications_service.dart';
 import 'package:office_teschi/session/user_session.dart';
@@ -17,10 +17,8 @@ Future<void> main() async {
   try {
     await LocalNotificationsService.instance.init();
   } on MissingPluginException {
-    // The plugin can be unavailable until a full restart after adding it.
   }
 
-  // Envolvemos toda la app en el ChangeNotifierProvider
   runApp(
     ChangeNotifierProvider(
       create: (context) => CartProvider(),
@@ -125,18 +123,15 @@ class _LandingPageState extends State<LandingPage>
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Círculos decorativos
           Positioned(top: -80, left: -80, child: _buildCircle(200)),
           Positioned(bottom: -70, left: -90, child: _buildCircle(220)),
           Positioned(top: 150, right: -100, child: _buildCircle(250)),
 
-          // Contenido principal
           Center(
             child: Column(
               children: [
                 const Spacer(),
 
-                // Imagen flotante con sombra
                 AnimatedBuilder(
                   animation: _animation,
                   builder: (context, child) {

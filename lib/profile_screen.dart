@@ -461,7 +461,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           }
         }
 
-        // Si el backend no devuelve wrapper {user, token}, construimos uno.
         responseMap ??= {
           'user': {
             'id_user': UserSession.idUser,

@@ -130,7 +130,6 @@ class _otrosState extends State<otros> {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () async {
-                              // Aquí deberías abrir el modal de pago si aplica
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF7CC8F8),
@@ -233,7 +232,6 @@ class _otrosState extends State<otros> {
                       : null,
                 };
               })
-              // FILTRO ESPECÍFICO: otros
               .where((mi) => mi['category'] == 'otros')
               .toList();
           isLoading = false;
@@ -344,7 +342,6 @@ class _otrosState extends State<otros> {
   }
 }
 
-// --- PRODUCT CARD ---
 class ProductCard extends StatelessWidget {
   final Map<String, dynamic> product;
   final void Function()? onTap;

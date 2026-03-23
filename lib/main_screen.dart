@@ -17,7 +17,6 @@ class principal extends StatelessWidget {
       canPop: UserSession.idUser != 1,
       onPopInvoked: (didPop) {
         if (didPop) return;
-        // Solo navegar a LoginScreen si el usuario no está loggueado
         if (UserSession.idUser == 1) {
           Navigator.pushReplacement(
             context,

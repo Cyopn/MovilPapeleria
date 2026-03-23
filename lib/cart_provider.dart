@@ -23,11 +23,9 @@ class CartProvider with ChangeNotifier {
 
   List<CartItem> get items => _items;
 
-  // Calcula el total sumando (precio * cantidad) de cada item
   double get total =>
       _items.fold(0.0, (sum, item) => sum + (item.price * item.quantity));
 
-  // Calcula el total de productos (cantidad total de items)
   int get totalItems => _items.fold(0, (sum, item) => sum + item.quantity);
 
   void addItem(CartItem item) {

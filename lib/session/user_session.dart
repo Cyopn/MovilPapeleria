@@ -93,7 +93,6 @@ class UserSession {
       }
     }
 
-    // If there is no active session, default to guest user id from env.
     if (token == null || user == null) {
       idUser = fallbackUserId;
     }

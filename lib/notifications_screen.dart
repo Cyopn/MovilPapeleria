@@ -182,7 +182,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         });
       }
     } catch (_) {
-      // Non-blocking: if patch fails, user can still open transaction detail.
     }
   }
 

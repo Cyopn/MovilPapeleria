@@ -36,7 +36,6 @@ class ImpresionesScreen extends StatefulWidget {
 }
 
 class _ImpresionesScreenState extends State<ImpresionesScreen> {
-  // Variables existentes
   String tipoImpresion = 'BN';
   bool _uploadLoading = false;
   bool _priceLoading = false;
@@ -45,7 +44,6 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
   double _precioTotal = 0;
   Map<String, dynamic>? _priceData;
 
-  // Variables para los campos visuales
   TextEditingController totalHojasController =
       TextEditingController(text: "--");
   TextEditingController rangoPaginasController = TextEditingController();
@@ -181,9 +179,7 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
 
     final payload = {
       'id_user': UserSession.idUser ?? AppConfig.defaultUserId,
-      // Keep original contract
       'resList': normalizedResList,
-      // Compatibility contracts used by some backends
       'files': normalizedResList,
       'file': firstFile,
       'filename': firstFile['filename'],
@@ -411,9 +407,6 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
     return null;
   }
 
-  // ==========================================
-  // DISEÑO 1: DIÁLOGO DE ERROR (ROJO)
-  // ==========================================
   void _mostrarAlertaError() {
     showDialog(
       context: context,
@@ -422,7 +415,7 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           backgroundColor:
-              Colors.transparent, // Fondo transparente para manejar bordes
+              Colors.transparent,
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -434,7 +427,7 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
                 Container(
                   height: 60,
                   decoration: const BoxDecoration(
-                    color: Color(0xFFEF4444), // Rojo tipo alerta
+                    color: Color(0xFFEF4444),
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(20)),
                   ),
@@ -480,9 +473,6 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
     );
   }
 
-  // ==========================================
-  // [NUEVO] DISEÑO 3: VISTA PREVIA FLOTANTE
-  // ==========================================
   Map<String, dynamic>? _selectedUpload() {
     if (_uploads.isEmpty) return null;
     if (_selectedUploadIndex >= 0 && _selectedUploadIndex < _uploads.length) {
@@ -671,9 +661,6 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
     );
   }
 
-  // ==========================================
-  // LÓGICA DE SUBIDA ACTUALIZADA
-  // ==========================================
   Future<void> _calcularPrecioApi({List<Map<String, dynamic>>? uploads}) async {
     final uploadInfo = uploads ?? _uploads;
     if (uploadInfo.isEmpty) return;
@@ -837,7 +824,6 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // HEADER
                 PrintServiceHeader(
                   title: 'Impresiones',
                   backgroundImage: 'assets/impresiones.png',
@@ -854,7 +840,6 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // BOTÓN SUBIR ARCHIVO
                       GestureDetector(
                         onTap: _subirArchivo,
                         child: Container(
@@ -966,7 +951,6 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
 
                       const SizedBox(height: 20),
 
-                      // FILAS DE CONFIGURACIÓN
                       Row(
                         children: [
                           Expanded(
@@ -1296,7 +1280,7 @@ class _ImpresionesScreenState extends State<ImpresionesScreen> {
                           Expanded(
                             child: ElevatedButton(
                               onPressed:
-                                  _mostrarVistaPrevia, // <--- AQUÍ ESTÁ EL ENLACE A VISTA PREVIA
+                                  _mostrarVistaPrevia,
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFFFFC107),
                                   shape: RoundedRectangleBorder(

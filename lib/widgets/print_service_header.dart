@@ -31,7 +31,6 @@ class PrintServiceHeader extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
-          // Fondo con overlay
           Container(
             height: 200,
             width: double.infinity,
@@ -43,7 +42,6 @@ class PrintServiceHeader extends StatelessWidget {
             ),
             child: Container(color: Colors.black.withOpacity(0.4)),
           ),
-          // Header con título y botones
           Positioned(
             top: 40,
             left: 10,
@@ -114,7 +112,6 @@ class PrintServiceHeader extends StatelessWidget {
               ],
             ),
           ),
-          // Preview widget (opcional)
         ],
       ),
     );

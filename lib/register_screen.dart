@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:office_teschi/main.dart'; // IMPORTANTE: Asegúrate de que esto apunte a tu archivo main.dart
+import 'package:office_teschi/main.dart';
 import 'package:office_teschi/config/app_config.dart';
 
 class registro extends StatelessWidget {
@@ -9,8 +9,6 @@ class registro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Nota: Quitamos el MaterialApp aquí para que la navegación funcione correctamente
-    // si vienes desde otra pantalla. Devolvemos solo el Scaffold o Screen.
     return const Scaffold(
       body: RegisterScreen(),
     );
@@ -25,7 +23,6 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  // Controladores
   final TextEditingController _namesController = TextEditingController();
   final TextEditingController _lastnamesController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
@@ -34,7 +31,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _confirmPassController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
-  // Variables para controlar si se ve la contraseña o no
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
 
@@ -78,7 +74,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 backgroundColor: Colors.green),
           );
 
-          // 1. LIMPIAR LOS CAMPOS
           _namesController.clear();
           _lastnamesController.clear();
           _usernameController.clear();
@@ -87,8 +82,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           _confirmPassController.clear();
           _phoneController.clear();
 
-          // 2. NAVEGAR A LA VENTANA MAIN (LandingPage)
-          // Usamos pushAndRemoveUntil para borrar el historial y que no pueda volver atrás al registro
           Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => const MyApp()),
@@ -143,10 +136,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // Fondo blanco
           Positioned.fill(child: Container(color: Colors.white)),
 
-          // Imagen decorativa superior
           ClipPath(
             clipper: TopRectCircleClipper(),
             child: Image.asset(
@@ -159,7 +150,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ),
 
-          // Formulario con Scroll
           Center(
             child: SingleChildScrollView(
               padding: EdgeInsets.only(top: size.height * 0.1),
@@ -192,7 +182,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     const Icon(Icons.person, size: 60, color: Colors.black),
                     const SizedBox(height: 20),
 
-                    // Campos de texto normales
                     _buildTextField(Icons.person, 'Nombre',
                         controller: _namesController),
                     const SizedBox(height: 15),
@@ -209,7 +198,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: _emailController),
                     const SizedBox(height: 15),
 
-                    // --- CAMPO CONTRASEÑA CON OJO ---
                     _buildTextField(Icons.lock, 'Contraseña',
                         obscure: _obscurePassword,
                         controller: _passwordController,
@@ -228,7 +216,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         )),
                     const SizedBox(height: 15),
 
-                    // --- CAMPO CONFIRMAR CONTRASEÑA CON OJO ---
                     _buildTextField(Icons.lock_outline, 'Confirmar contraseña',
                         obscure: _obscureConfirmPassword,
                         controller: _confirmPassController,
@@ -252,7 +239,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: _phoneController, isNumber: true),
                     const SizedBox(height: 25),
 
-                    // Botón
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
@@ -292,12 +278,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  // Modificado para aceptar suffixIcon (el ojito)
   Widget _buildTextField(IconData icon, String hint,
       {bool obscure = false,
       bool isNumber = false,
       required TextEditingController controller,
-      Widget? suffixIcon // Nuevo parámetro opcional
+      Widget? suffixIcon
       }) {
     return TextField(
       controller: controller,
@@ -305,7 +290,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       keyboardType: isNumber ? TextInputType.phone : TextInputType.text,
       decoration: InputDecoration(
         prefixIcon: Icon(icon, color: Colors.grey[700]),
-        suffixIcon: suffixIcon, // Aquí ponemos el icono del ojo si existe
+        suffixIcon: suffixIcon,
         hintText: hint,
         filled: true,
         fillColor: Colors.grey.shade200,

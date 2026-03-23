@@ -73,7 +73,6 @@ class AppBottomNavBar extends StatelessWidget {
           );
         }
         if (index == 2) {
-          // Verificar si hay usuario loggeado
           if (UserSession.idUser == 1) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(

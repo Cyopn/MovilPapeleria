@@ -163,8 +163,6 @@ class _ventana_papeleriaState extends State<ventana_papeleria> {
     );
   }
 
-  // --- WIDGETS DE APOYO ---
-
   Widget _buildSearchField() {
     return const ProductSearchBar();
   }
@@ -193,8 +191,6 @@ class _ventana_papeleriaState extends State<ventana_papeleria> {
     );
   }
 }
-
-// --- PRODUCT CARD REUTILIZABLE ---
 
 typedef ShowDetailCallback = void Function(Map<String, dynamic> product);
 
@@ -326,7 +322,6 @@ class ProductCard extends StatelessWidget {
   }
 }
 
-// --- DIALOG DE DETALLE DE PRODUCTO ---
 class ProductDetailDialog extends StatefulWidget {
   final Map<String, dynamic> product;
   const ProductDetailDialog({super.key, required this.product});
@@ -494,6 +489,5 @@ class _ProductDetailDialogState extends State<ProductDetailDialog> {
         ),
       ),
     );
-    // (Fin de la clase _ProductDetailDialogState)
   }
 }

@@ -61,7 +61,6 @@ class _LoginScreenState extends State<LoginScreen> {
           authResponse: responseData,
         );
 
-        // Inicia la escucha inmediatamente al iniciar sesión.
         await NotificationsSseClient.instance.ensureRunningForSession();
 
         if (mounted) {

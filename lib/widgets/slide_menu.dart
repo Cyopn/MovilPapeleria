@@ -3,6 +3,7 @@ import 'package:office_teschi/login_screen.dart';
 import 'package:office_teschi/my_orders_screen.dart';
 import 'package:office_teschi/notifications_screen.dart';
 import 'package:office_teschi/order_history_screen.dart';
+import 'package:office_teschi/dashboard_screen.dart';
 import 'package:office_teschi/profile_screen.dart';
 import 'package:office_teschi/services/notifications_sse_client.dart';
 import 'package:office_teschi/session/user_session.dart';
@@ -155,6 +156,8 @@ class _SlideMenuOverlay extends StatelessWidget {
         '${UserSession.names ?? ''} ${UserSession.lastnames ?? ''}'.trim();
     final email = (UserSession.email ?? '').trim();
     final phone = (UserSession.phone ?? '').trim();
+    final allowedRoles = ['admin', 'manager', 'supervisor', 'employee'];
+    final userRole = (UserSession.role ?? '').toLowerCase();
 
     return SafeArea(
       child: Align(
@@ -272,6 +275,21 @@ class _SlideMenuOverlay extends StatelessWidget {
                           _buildReadOnlyField('Numero de telefono',
                               phone.isEmpty ? 'Sin telefono' : phone),
                           const SizedBox(height: 8),
+                          if (allowedRoles.contains(userRole))
+                            _buildMenuOption(
+                              context: context,
+                              icon: Icons.dashboard,
+                              label: 'Dashboard',
+                              onTap: () {
+                                Navigator.of(context).pop();
+                                Navigator.push(
+                                  parentContext,
+                                  MaterialPageRoute(
+                                    builder: (_) => const DashboardScreen(),
+                                  ),
+                                );
+                              },
+                            ),
                           _buildMenuOption(
                             context: context,
                             icon: Icons.settings,

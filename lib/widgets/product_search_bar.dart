@@ -22,7 +22,6 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
   String _error = '';
 
   String _normalize(String input) {
-    // Elimina acentos y convierte a minúsculas
     return input
         .toLowerCase()
         .replaceAll(RegExp(r'[áàäâã]'), 'a')
@@ -40,7 +39,6 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
       });
       return;
     }
-    // Si aún no se han cargado los productos, primero los carga y luego filtra
     if (_allProducts.isEmpty) {
       _fetchAllProductsAndFilter(query);
     } else {
@@ -75,7 +73,6 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
         setState(() {
           _allProducts = products;
         });
-        // Filtrar después de cargar
         final q = _normalize(query);
         setState(() {
           _results = products.where((product) {
@@ -133,7 +130,6 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
     }
   }
 
-  // Convierte el producto de la búsqueda al formato esperado por el detalle
   Map<String, dynamic> _mapProductForDetail(Map<String, dynamic> product) {
     final item = product['item'] ?? {};
     final List filesList = product['files'] ?? [];

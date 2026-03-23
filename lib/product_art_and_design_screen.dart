@@ -203,7 +203,6 @@ class _arteState extends State<arte> {
   void initState() {
     super.initState();
     fetchProducts();
-    // Si hay un producto seleccionado, mostrar el detalle después de que se construya el widget
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.selectedProduct != null && !_detalleMostrado) {
         _detalleMostrado = true;
@@ -247,7 +246,6 @@ class _arteState extends State<arte> {
                       : null,
                 };
               })
-              // FILTRO ESPECÍFICO: arte_y_diseno
               .where((mi) => mi['category'] == 'arte_y_diseno')
               .toList();
           isLoading = false;
@@ -268,13 +266,11 @@ class _arteState extends State<arte> {
       body: SafeArea(
         child: Column(
           children: [
-            // 1. ENCABEZADO
             AppHeader(
               title: 'Arte y Diseño',
               showBackButton: true,
             ),
 
-            // 2. CONTENIDO SCROLLABLE
             Expanded(
               child: isLoading
                   ? const Center(child: CircularProgressIndicator())
@@ -292,7 +288,6 @@ class _arteState extends State<arte> {
                             _buildBanner(),
                             const SizedBox(height: 20),
 
-                            // GRID DINÁMICO
                             productItems.isEmpty
                                 ? const Padding(
                                     padding: EdgeInsets.only(top: 50),
@@ -366,13 +361,11 @@ class _arteState extends State<arte> {
   }
 }
 
-// --- PRODUCT CARD CON VENTANA FLOTANTE ---
 
 class ProductCard extends StatelessWidget {
   final Map<String, dynamic> product;
   const ProductCard({super.key, required this.product});
 
-  // Llama al método de la pantalla principal pasando el producto
   void _mostrarDetalleProducto(BuildContext context) {
     final arteState = context.findAncestorStateOfType<_arteState>();
     if (arteState != null) {

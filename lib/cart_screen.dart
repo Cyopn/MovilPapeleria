@@ -10,7 +10,6 @@ class carrito extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Escuchamos el provider para reaccionar a cambios
     final cart = context.watch<CartProvider>();
 
     return Scaffold(
@@ -29,7 +28,6 @@ class carrito extends StatelessWidget {
                     const SizedBox(height: 10),
                     _buildSectionTitle('Pedidos', cart.totalItems),
 
-                    // LISTA DINÁMICA DE PRODUCTOS
                     cart.items.isEmpty
                         ? const Padding(
                             padding: EdgeInsets.all(50),
@@ -44,7 +42,7 @@ class carrito extends StatelessWidget {
 
                     const SizedBox(height: 20),
                     _buildActionButtons(context),
-                    const SizedBox(height: 100), // Espacio para el BottomNav
+                    const SizedBox(height: 100),
                   ],
                 ),
               ),

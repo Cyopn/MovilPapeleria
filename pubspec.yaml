@@ -32,6 +32,7 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^27.2.5
   pdf: ^3.11.1
   image: ^4.2.0
+  fl_chart: ^1.2.0
 
 
 flutter_launcher_icons:

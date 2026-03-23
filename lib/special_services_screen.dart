@@ -7,9 +7,6 @@ import 'package:office_teschi/widgets/app_bottom_nav_bar.dart';
 import 'package:office_teschi/widgets/app_header.dart';
 import 'package:office_teschi/main_screen.dart';
 
-// Importa aquí tus archivos de destino si ya los tienes creados
-// import 'package:office_teschi/encuadernado_detalle.dart';
-
 void main() {
   runApp(const servicioses());
 }
@@ -29,17 +26,16 @@ class servicioses extends StatelessWidget {
 class ServiciosScreen extends StatelessWidget {
   const ServiciosScreen({super.key});
 
-  // Hemos cambiado el tipo a dynamic para poder guardar el Widget de destino
   static final List<Map<String, dynamic>> servicios = [
     {
       'titulo': 'Encuadernado\ne Impresión',
       'imagen': 'assets/encuadernado.png',
-      'destino': const encuadernado(), // Reemplaza con tu clase real
+      'destino': const encuadernado(),
     },
     {
       'titulo': 'Impresión\nde Fotografía',
       'imagen': 'assets/imprfoto.png',
-      'destino': const fotografia(), // Reemplaza con tu clase real
+      'destino': const fotografia(),
     },
     {
       'titulo': 'Anillado\ne Impresión',
@@ -121,7 +117,6 @@ class ServiciosScreen extends StatelessWidget {
                         final servicio = servicios[index];
                         return GestureDetector(
                           onTap: () {
-                            // NAVEGACIÓN DINÁMICA
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -179,8 +174,6 @@ class ServiciosScreen extends StatelessWidget {
     );
   }
 }
-
-// ===== PANTALLAS TEMPORALES (Crea archivos separados para estas) =====
 
 class EncuadernadoScreen extends StatelessWidget {
   const EncuadernadoScreen({super.key});

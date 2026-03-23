@@ -206,7 +206,6 @@ class NotificationsSseClient {
       return;
     }
 
-    // Fallback for custom/unknown events with visible message.
     final fallbackMessage = payload?['message']?.toString();
     if (fallbackMessage != null && fallbackMessage.trim().isNotEmpty) {
       AppMessenger.showInfo(fallbackMessage);
